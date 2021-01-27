@@ -1,0 +1,13 @@
+#qodef-page-footer-top-area { background-image: url(../wp-content/uploads/2020/05/h1-top-header-line-img-1.jpg);background-size: auto;background-position: top left;}#qodef-page-inner { padding: 100px 0px 90px 0px;}@media only screen and (max-width: 1024px) { #qodef-page-inner { padding: 100px 0px 80px 0px;}}.qodef-header-navigation > ul > li.qodef-menu-item--narrow .qodef-drop-down-second ul li a { text-transform: capitalize;}#qodef-page-spinner .qodef-m-inner { background-color: #000000;background-image: url(../wp-content/uploads/2020/06/landing-pattern.jpg);;}.qodef-page-title { height: 78px;}a, p a { letter-spacing: 0px;}.qodef-search-opener { color: #9f9f9e;}.qodef-search-opener { color: #9f9f9e;}.qodef-header--standard #qodef-page-header { background-image: url(../wp-content/uploads/2020/05/h1-top-header-line-img-1.jpg);background-repeat: no-repeat;background-position: top left;}@media only screen and (max-width: 680px){h1 { font-size: 55px;}h2 { font-size: 38px;}}
+.qodef-footer-hover {
+    transition: color .25s ease-out;
+}
+
+#qodef-page-footer #qodef-page-footer-bottom-area a:hover .qodef-footer-hover {
+    color: #fff;
+}
+
+.page-id-7 .qodef-accordion,
+.page-id-1908 .qodef-accordion{
+    min-height: 397px;
+}

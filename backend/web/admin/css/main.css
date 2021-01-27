@@ -1,0 +1,817 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #fff;
+    font-family: "SegoeUI";
+    font-size: 16px;
+    color: #585858;
+}
+
+#regForm {
+    background-color: #ffffff;
+    font-family: Raleway;
+    padding: 10px 40px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+input {
+    font-size: 17px;
+    font-family: Raleway;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+    background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+    display: none;
+}
+
+button {
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: normal;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+#prevBtn {
+    background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+.step.active {
+    opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    background-color: #4CAF50;
+}
+.red{
+    color: red;
+}
+
+/* The container */
+.con {
+    float:left;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.con input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.con:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.con input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.con input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.con .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+.input1 {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+}
+
+
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+    body{
+        font-family: 'Roboto', sans-serif;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    i {
+        margin-right: 10px;
+    }
+
+    /*------------------------*/
+    input:focus,
+    button:focus,
+    .form-control:focus{
+        outline: none;
+        box-shadow: none;
+    }
+    .form-control:disabled, .form-control[readonly]{
+        background-color: #fff;
+    }
+    /*----------step-wizard------------*/
+    .d-flex{
+        display: flex;
+    }
+    .justify-content-center{
+        justify-content: center;
+    }
+    .align-items-center{
+        align-items: center;
+    }
+
+    /*---------signup-step-------------*/
+    .bg-color{
+        background-color: #333;
+    }
+    .signup-step-container{
+        padding: 45px 0px;
+        padding-bottom: 60px;
+    }
+
+
+
+
+    .wizard .nav-tabs {
+        position: relative;
+        margin-bottom: 0;
+        border-bottom-color: transparent;
+    }
+
+    .wizard > div.wizard-inner {
+        position: relative;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .connecting-line {
+        height: 2px;
+        background: #e0e0e0;
+        position: absolute;
+        width: 75%;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        top: 15px;
+        z-index: 1;
+    }
+
+    .wizard .nav-tabs > li.active > a, .wizard .nav-tabs > li.active > a:hover, .wizard .nav-tabs > li.active > a:focus {
+        color: #555555;
+        cursor: default;
+        border: 0;
+        border-bottom-color: transparent;
+    }
+
+    span.round-tab {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        display: inline-block;
+        border-radius: 50%;
+        background: #fff;
+        z-index: 2;
+        position: absolute;
+        left: 0;
+        text-align: center;
+        font-size: 16px;
+        color: #0e214b;
+        font-weight: 500;
+        border: 1px solid #ddd;
+    }
+    span.round-tab i{
+        color:#555555;
+    }
+    .wizard li.active span.round-tab {
+        background: #0db02b;
+        color: #fff;
+        border-color: #0db02b;
+    }
+    .wizard li.active span.round-tab i{
+        color: #5bc0de;
+    }
+    .wizard .nav-tabs > li.active > a i{
+        color: #0db02b;
+    }
+
+
+
+
+
+
+
+
+    .wizard .nav-tabs > li {
+        width: 19%;
+    }
+
+    .wizard li:after {
+        content: " ";
+        position: absolute;
+        left: 46%;
+        opacity: 0;
+        margin: 0 auto;
+        bottom: 0px;
+        border: 5px solid transparent;
+        border-bottom-color: red;
+        transition: 0.1s ease-in-out;
+    }
+
+
+
+    .wizard .nav-tabs > li a {
+        width: 30px;
+        height: 30px;
+        margin: 20px auto;
+        border-radius: 100%;
+        padding: 0;
+        background-color: transparent;
+        position: relative;
+        top: 0;
+    }
+    .wizard .nav-tabs > li a i{
+        position: absolute;
+        top: -15px;
+        font-style: normal;
+        font-weight: 400;
+        white-space: nowrap;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 12px;
+        font-weight: 700;
+        color: #000;
+    }
+
+    .wizard .nav-tabs > li a:hover {
+        background: transparent;
+    }
+
+    .wizard .tab-pane {
+        position: relative;
+        padding-top: 20px;
+    }
+
+
+    .wizard h3 {
+        margin-top: 0;
+    }
+    .prev-step,
+    .next-step{
+        font-size: 13px;
+        padding: 8px 24px;
+        border: none;
+        border-radius: 4px;
+        margin-top: 30px;
+    }
+    .next-step{
+        background-color: #0db02b;
+    }
+    .skip-btn{
+        background-color: #cec12d;
+    }
+    .step-head{
+        font-size: 20px;
+        text-align: center;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+    .term-check{
+        font-size: 14px;
+        font-weight: 400;
+    }
+    .custom-file {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 40px;
+        margin-bottom: 0;
+    }
+    .custom-file-input {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 40px;
+        margin: 0;
+        opacity: 0;
+    }
+    .custom-file-label {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1;
+        height: 40px;
+        padding: .375rem .75rem;
+        font-weight: 400;
+        line-height: 2;
+        color: #495057;
+        background-color: #fff;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+    }
+    .custom-file-label::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+        display: block;
+        height: 38px;
+        padding: .375rem .75rem;
+        line-height: 2;
+        color: #495057;
+        content: "Browse";
+        background-color: #e9ecef;
+        border-left: inherit;
+        border-radius: 0 .25rem .25rem 0;
+    }
+
+
+
+
+
+
+    .footer-link{
+        margin-top: 30px;
+    }
+    .all-info-container{
+
+    }
+    .list-content{
+        margin-bottom: 10px;
+    }
+    .list-content a{
+        padding: 10px 15px;
+        width: 100%;
+        display: inline-block;
+        background-color: #f5f5f5;
+        position: relative;
+        color: #565656;
+        font-weight: 400;
+        border-radius: 4px;
+    }
+    .list-content a[aria-expanded="true"] i{
+        transform: rotate(180deg);
+    }
+    .list-content a i{
+        text-align: right;
+        position: absolute;
+        top: 15px;
+        right: 10px;
+        transition: 0.5s;
+    }
+    .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+        background-color: #fdfdfd;
+    }
+    .list-box{
+        padding: 10px;
+    }
+    .signup-logo-header .logo_area{
+        width: 200px;
+    }
+    .signup-logo-header .nav > li{
+        padding: 0;
+    }
+    .signup-logo-header .header-flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .list-inline li{
+        display: inline-block;
+    }
+    .pull-right{
+        float: right;
+    }
+    /*-----------custom-checkbox-----------*/
+    /*----------Custom-Checkbox---------*/
+    input[type="checkbox"]{
+        position: relative;
+        display: inline-block;
+        margin-right: 5px;
+    }
+    input[type="checkbox"]::before,
+    input[type="checkbox"]::after {
+        position: absolute;
+        content: "";
+        display: inline-block;
+    }
+    input[type="checkbox"]::before{
+        height: 16px;
+        width: 16px;
+        border: 1px solid #999;
+        left: 0px;
+        top: 0px;
+        background-color: #fff;
+        border-radius: 2px;
+    }
+    input[type="checkbox"]::after{
+        height: 5px;
+        width: 9px;
+        left: 4px;
+        top: 4px;
+    }
+    input[type="checkbox"]:checked::after{
+        content: "";
+        border-left: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        transform: rotate(-45deg);
+    }
+    input[type="checkbox"]:checked::before{
+        background-color: #18ba60;
+        border-color: #18ba60;
+    }
+
+
+
+    @media (max-width: 767px){
+        .sign-content h3{
+            font-size: 40px;
+        }
+        .wizard .nav-tabs > li a i{
+            display: none;
+        }
+        .signup-logo-header .navbar-toggle{
+            margin: 0;
+            margin-top: 8px;
+        }
+        .signup-logo-header .logo_area{
+            margin-top: 0;
+        }
+        .signup-logo-header .header-flex{
+            display: block;
+        }
+    }
+
+
+.bg-primary {
+    background-color: #0c8fe7!important;
+}
+
+
+.breadcrumb{
+    display: none;
+}
+
+
+
+
+.multisteps-form__progress {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+}
+
+.multisteps-form__progress-btn {
+    transition-property: all;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    position: relative;
+    padding-top: 20px;
+    color: #a1a1a1;
+    text-indent: -9999px;
+    border: none;
+    background-color: transparent;
+    outline: none !important;
+    cursor: pointer;
+}
+
+@media (min-width: 500px) {
+    .multisteps-form__progress-btn {
+        text-indent: 0;
+    }
+}
+
+.multisteps-form__progress-btn:before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: block;
+    width: 16px;
+    height: 16px;
+    content: '';
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    transition: all 0.15s linear 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+    transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+    transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    background-color: #fff;
+    box-sizing: border-box;
+    z-index: 3;
+}
+
+.multisteps-form__progress-btn:after {
+    position: absolute;
+    top: 5px;
+    left: calc(-50% - 13px / 2);
+    transition-property: all;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    display: block;
+    width: 100%;
+    height: 7px;
+    content: '';
+    background-color: currentColor;
+    z-index: 1;
+}
+
+.multisteps-form__progress-btn:first-child:after {
+    display: none;
+}
+
+.multisteps-form__progress-btn.js-active {
+    color: #388fff;
+}
+
+.multisteps-form__progress-btn.js-active:before {
+    -webkit-transform: translateX(-50%) scale(1.2);
+    transform: translateX(-50%) scale(1.2);
+    background-color: currentColor;
+}
+
+.multisteps-form__form {
+    position: relative;
+}
+
+.multisteps-form__panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.multisteps-form__panel.js-active {
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+}
+.cols{
+    display: inline-block;
+    max-width: 100%;
+    color: #585858;
+    font: 16px;
+    font-weight: 700;
+}
+
+.error-message{
+    color: red;
+}
+
+
+
+
+.progr{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.multisteps-form__progress-btn1 {
+    transition-property: all;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    position: relative;
+    padding-top: 20px;
+    color: #a1a1a1;
+    text-indent: -9999px;
+    border: none;
+    background-color: transparent;
+    outline: none !important;
+    cursor: pointer;
+}
+
+@media (min-width: 500px) {
+    .multisteps-form__progress-btn1 {
+        text-indent: 0;
+    }
+}
+
+.multisteps-form__progress-btn1:before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: block;
+    width: 16px;
+    height: 16px;
+    content: '';
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    transition: all 0.15s linear 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+    transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+    transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    background-color: #fff;
+    box-sizing: border-box;
+    z-index: 3;
+}
+
+.multisteps-form__progress-btn1:after {
+    position: absolute;
+    top: 5px;
+    left: calc(-50% - 13px / 2);
+    transition-property: all;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    display: block;
+    width: 100%;
+    height: 7px;
+    content: '';
+    background-color: currentColor;
+    z-index: 1;
+}
+
+.multisteps-form__progress-btn1:first-child:after {
+    display: none;
+}
+
+.multisteps-form__progress-btn1.js-active {
+    color: #388fff;
+}
+
+.multisteps-form__progress-btn1.js-active:before {
+    -webkit-transform: translateX(-50%) scale(1.2);
+    transform: translateX(-50%) scale(1.2);
+    background-color: currentColor;
+}
+
+
+
+
+
+
+
+
+.multisteps-form__panel1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.multisteps-form__panel1.js-active {
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+}
+
